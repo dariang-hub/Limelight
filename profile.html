@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margaret Hayes — Performer Profile · LimeLight</title>
+<meta name="description" content="AEA Actor · Musical Theatre · Soprano · New York, NY. View resume, credits, and performance clips.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --coral: #F4694B;
+  --teal: #2DD4BF;
+  --gold: #F5B731;
+  --navy: #0B0F1A;
+  --navy-mid: #111827;
+  --surface: #1E2A3A;
+  --surface-light: #253447;
+  --white: #F8F6F0;
+  --white-dim: rgba(248,246,240,0.65);
+  --border: rgba(248,246,240,0.08);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--white); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background: rgba(11,15,26,0.95);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+}
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.logo-badge { width: 28px; height: 28px; background: linear-gradient(135deg,#FF6B35,#F5B731); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+.logo-lime { background: linear-gradient(90deg,#F5B731,#FFD166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.logo-light { color: var(--white); -webkit-text-fill-color: var(--white); }
+.topbar-actions { display: flex; gap: 10px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.8125rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; }
+.btn-coral { background: var(--coral); color: white; box-shadow: 0 4px 16px rgba(244,105,75,0.3); }
+.btn-coral:hover { background: #FF8B6E; transform: translateY(-1px); }
+.btn-ghost { background: rgba(248,246,240,0.08); color: var(--white); border: 1px solid var(--border); }
+.btn-ghost:hover { background: rgba(248,246,240,0.14); }
+
+/* ── HERO BANNER ── */
+.profile-banner {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #0d1628 0%, #1a2a3a 50%, #0f1e2e 100%);
+  min-height: 280px;
+  display: flex; align-items: flex-end;
+}
+.banner-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(244,105,75,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(45,212,191,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 100%, rgba(245,183,49,0.06) 0%, transparent 50%);
+}
+/* Stage curtain lines */
+.banner-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent 0px, transparent 80px, rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px);
+}
+.banner-content {
+  position: relative; z-index: 1;
+  width: 100%; padding: 40px 40px 0;
+  display: flex; align-items: flex-end; gap: 28px;
+}
+@media (max-width: 600px) { .banner-content { padding: 24px 20px 0; gap: 16px; flex-wrap: wrap; } }
+
+.profile-photo {
+  width: 120px; height: 120px; flex-shrink: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1E3A5F, #2D5A8E);
+  border: 3px solid rgba(248,246,240,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; font-weight: 700;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  overflow: hidden;
+  margin-bottom: -40px;
+}
+.photo-inner {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; color: rgba(248,246,240,0.9);
+}
+.verified-badge {
+  position: absolute; bottom: 6px; right: 6px;
+  width: 22px; height: 22px; background: var(--teal);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; border: 2px solid var(--navy);
+}
+
+.banner-info { padding-bottom: 32px; flex: 1; }
+.profile-name { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 900; line-height: 1.1; margin-bottom: 6px; }
+.profile-discipline { font-size: 0.9375rem; color: var(--teal); font-weight: 500; margin-bottom: 8px; }
+.profile-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+.profile-meta-item { font-size: 0.8125rem; color: var(--white-dim); display: flex; align-items: center; gap: 5px; }
+.union-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+.union-chip { padding: 3px 10px; border: 1px solid rgba(245,183,49,0.35); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: var(--gold); letter-spacing: 0.06em; background: rgba(245,183,49,0.07); }
+
+/* ── LAYOUT ── */
+.page-body { max-width: 1100px; margin: 0 auto; padding: 56px 24px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; align-items: start; }
+@media (max-width: 900px) { .page-body { grid-template-columns: 1fr; } }
+
+/* ── MAIN COLUMN ── */
+.section-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+.card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.card-title-line { flex: 1; height: 1px; background: var(--border); }
+
+/* Resume credits */
+.credit-category { margin-bottom: 20px; }
+.credit-cat-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--coral); margin-bottom: 10px; border-bottom: 1px solid rgba(244,105,75,0.2); padding-bottom: 6px; }
+.credit-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid rgba(248,246,240,0.04); font-size: 0.8125rem; }
+.credit-row:last-child { border-bottom: none; }
+.credit-role { font-weight: 600; color: var(--white); }
+.credit-show { color: var(--white-dim); font-style: italic; }
+.credit-venue { color: rgba(248,246,240,0.4); font-size: 0.75rem; }
+@media (max-width: 600px) { .credit-row { grid-template-columns: 1fr 1fr; } .credit-venue { display: none; } }
+
+/* Training */
+.training-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(248,246,240,0.04); font-size: 0.8125rem; }
+.training-item:last-child { border-bottom: none; }
+.training-name { font-weight: 600; }
+.training-detail { color: var(--white-dim); text-align: right; font-size: 0.78rem; }
+
+/* Skills */
+.skills-group { margin-bottom: 16px; }
+.skills-group-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white-dim); margin-bottom: 8px; }
+.skills-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tag { background: rgba(248,246,240,0.07); border: 1px solid var(--border); border-radius: 100px; padding: 4px 12px; font-size: 0.78rem; color: var(--white-dim); transition: all 0.2s; }
+.skill-tag:hover { border-color: rgba(45,212,191,0.4); color: var(--teal); }
+.skill-tag-highlight { background: rgba(244,105,75,0.1); border-color: rgba(244,105,75,0.25); color: var(--coral); }
+
+/* Clips */
+.clips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 500px) { .clips-grid { grid-template-columns: 1fr; } }
+
+.clip-card { background: var(--navy); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.25s; }
+.clip-card:hover { border-color: rgba(244,105,75,0.4); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.clip-thumb { height: 130px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; position: relative; }
+.clip-thumb-1 { background: linear-gradient(135deg, #1a0a2e, #2d1b4e); }
+.clip-thumb-2 { background: linear-gradient(135deg, #0a1e2e, #1a3550); }
+.clip-thumb-3 { background: linear-gradient(135deg, #1a2010, #2d3a20); }
+.clip-thumb-4 { background: linear-gradient(135deg, #2e0a1a, #4e1b2d); }
+
+.clip-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+.clip-card:hover .clip-play { background: rgba(0,0,0,0.4); }
+.clip-play-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(244,105,75,0.9);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; transition: transform 0.2s;
+  box-shadow: 0 4px 20px rgba(244,105,75,0.5);
+}
+.clip-card:hover .clip-play-btn { transform: scale(1.1); }
+.clip-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); border-radius: 4px; padding: 2px 6px; font-size: 0.7rem; font-family: monospace; }
+.clip-info { padding: 12px; }
+.clip-title { font-size: 0.8125rem; font-weight: 600; margin-bottom: 3px; }
+.clip-tag { font-size: 0.72rem; color: var(--teal); }
+
+/* Gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 500px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.gallery-item { aspect-ratio: 3/4; border-radius: 8px; overflow: hidden; cursor: pointer; position: relative; transition: transform 0.2s; }
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-item:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+.gallery-bg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+.g1 { background: linear-gradient(135deg, #2d1b4e, #1a3550); }
+.g2 { background: linear-gradient(135deg, #1a3550, #0a2e1e); }
+.g3 { background: linear-gradient(135deg, #3a1a10, #2e2010); }
+.g4 { background: linear-gradient(135deg, #1e3a10, #2d1b4e); }
+.gallery-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+.gallery-item:hover .gallery-overlay { background: rgba(0,0,0,0.3); }
+.gallery-zoom { opacity: 0; transition: opacity 0.2s; font-size: 1.5rem; }
+.gallery-item:hover .gallery-zoom { opacity: 1; }
+
+/* ── SIDEBAR ── */
+.sidebar-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin-bottom: 16px; }
+.sidebar-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--white-dim); margin-bottom: 14px; }
+
+.contact-actions { display: flex; flex-direction: column; gap: 10px; }
+.contact-btn { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; border: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s; text-align: left; }
+.contact-btn-primary { background: var(--coral); color: white; box-shadow: 0 4px 20px rgba(244,105,75,0.3); }
+.contact-btn-primary:hover { background: #FF8B6E; transform: translateY(-1px); }
+.contact-btn-secondary { background: rgba(45,212,191,0.1); color: var(--teal); border: 1px solid rgba(45,212,191,0.25); }
+.contact-btn-secondary:hover { background: rgba(45,212,191,0.18); }
+.contact-btn-ghost { background: var(--surface-light); color: var(--white-dim); border: 1px solid var(--border); }
+.contact-btn-ghost:hover { color: var(--white); }
+
+.stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.8125rem; }
+.stat-row:last-child { border-bottom: none; }
+.stat-label { color: var(--white-dim); }
+.stat-val { font-weight: 600; }
+
+.qr-block { text-align: center; padding: 16px; }
+.qr-code { width: 100px; height: 100px; background: white; border-radius: 8px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; padding: 8px; }
+.qr-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; width: 84px; }
+.qr-cell { aspect-ratio: 1; border-radius: 1px; }
+.qr-dark { background: #111; }
+.qr-light { background: white; }
+.qr-label { font-size: 0.72rem; color: var(--white-dim); }
+
+.profile-share { display: flex; align-items: center; gap: 8px; background: var(--navy); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin-top: 12px; }
+.profile-share-url { font-size: 0.75rem; color: var(--teal); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.copy-btn { background: none; border: none; color: var(--white-dim); cursor: pointer; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; transition: all 0.2s; white-space: nowrap; }
+.copy-btn:hover { background: rgba(248,246,240,0.1); color: var(--white); }
+
+/* Representation */
+.rep-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.rep-item:last-child { border-bottom: none; }
+.rep-icon { width: 32px; height: 32px; border-radius: 6px; background: rgba(245,183,49,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+.rep-name { font-size: 0.8125rem; font-weight: 600; }
+.rep-role { font-size: 0.72rem; color: var(--white-dim); }
+
+/* ── VIDEO MODAL ── */
+.video-modal { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(11,15,26,0.95); backdrop-filter: blur(16px); align-items: center; justify-content: center; padding: 24px; }
+.video-modal.open { display: flex; }
+.video-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; max-width: 700px; width: 100%; padding: 24px; position: relative; }
+.video-close { position: absolute; top: 16px; right: 16px; background: rgba(248,246,240,0.1); border: none; color: var(--white); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+.video-close:hover { background: rgba(244,105,75,0.3); }
+.video-player { background: #000; border-radius: 10px; aspect-ratio: 16/9; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 3rem; }
+.video-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 4px; }
+.video-meta { font-size: 0.8rem; color: var(--white-dim); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.fade-in { animation: fadeInUp 0.6s ease forwards; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* ── POWERED BY ── */
+.powered-by { text-align: center; padding: 32px; border-top: 1px solid var(--border); margin-top: 24px; font-size: 0.8rem; color: rgba(248,246,240,0.3); }
+.powered-by a { color: var(--coral); text-decoration: none; font-weight: 600; }
+.powered-by a:hover { color: #FF8B6E; }
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .banner-info { padding-bottom: 20px; }
+  .profile-photo { width: 88px; height: 88px; margin-bottom: -30px; }
+  .page-body { padding-top: 44px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <div class="logo-badge">⚡</div>
+    <div class="logo-text"><span class="logo-lime">Lime</span><span class="logo-light">Light</span></div>
+  </a>
+  <div class="topbar-actions">
+    <a href="onboarding.html" class="btn btn-ghost">Log In</a>
+    <a href="onboarding.html" class="btn btn-coral">⚡ Build Your Resume</a>
+  </div>
+</div>
+
+<!-- PROFILE BANNER -->
+<div class="profile-banner">
+  <div class="banner-bg"></div>
+  <div class="banner-content">
+    <div class="profile-photo fade-in">
+      <div class="photo-inner">MH</div>
+      <div class="verified-badge">✓</div>
+    </div>
+    <div class="banner-info fade-in delay-1">
+      <div class="profile-name">Margaret Hayes</div>
+      <div class="profile-discipline">Actor · Singer · Musical Theatre</div>
+      <div class="profile-meta">
+        <span class="profile-meta-item">📍 New York, NY</span>
+        <span class="profile-meta-item">🎵 Soprano C4–E♭6</span>
+        <span class="profile-meta-item">📏 5'6"</span>
+        <span class="profile-meta-item">👁 Brown / Green</span>
+      </div>
+      <div class="union-chips">
+        <span class="union-chip">AEA</span>
+        <span class="union-chip">SAG-AFTRA Eligible</span>
+        <span class="union-chip">AGMA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <!-- ── MAIN COLUMN ── -->
+  <div class="main-col">
+
+    <!-- PERFORMANCE CLIPS -->
+    <div class="section-card fade-in delay-1">
+      <div class="card-title">🎬 Performance Clips <div class="card-title-line"></div></div>
+      <div class="clips-grid">
+        <div class="clip-card" onclick="openVideo('Chicago Revival — Audition Scene','Musical Theatre · 1:52')">
+          <div class="clip-thumb clip-thumb-1">
+            🎭
+            <div class="clip-play">
+              <div class="clip-play-btn">▶</div>
+              <div class="clip-duration">1:52</div>
+            </div>
+          </div>
+          <div class="clip-info">
+            <div class="clip-title">Chicago Revival — Audition Scene</div>
+            <div class="clip-tag">Musical Theatre</div>
+          </div>
+        </div>
+        <div class="clip-card" onclick="openVideo('16-Bar Cut — Soprano Showcase','Vocal · 2:10')">
+          <div class="clip-thumb clip-thumb-2">
+            🎵
+            <div class="clip-play">
+              <div class="clip-play-btn">▶</div>
+              <div class="clip-duration">2:10</div>
+            </div>
+          </div>
+          <div class="clip-info">
+            <div class="clip-title">16-Bar Cut — Soprano Showcase</div>
+            <div class="clip-tag">Vocal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE CREDITS -->
+    <div class="section-card fade-in delay-2">
+      <div class="card-title">🎭 Stage Credits <div class="card-title-line"></div></div>
+
+      <div class="credit-category">
+        <div class="credit-cat-label">Broadway / Off-Broadway</div>
+        <div class="credit-row">
+          <div class="credit-role">Roxie Hart</div>
+          <div class="credit-show">Chicago (Revival)</div>
+          <div class="credit-venue">Ambassador Theatre · Dir. Susan Stroman</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Eliza Doolittle</div>
+          <div class="credit-show">My Fair Lady</div>
+          <div class="credit-venue">Lincoln Center Theater · Dir. Bartlett Sher</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Sally Bowles</div>
+          <div class="credit-show">Cabaret</div>
+          <div class="credit-venue">Studio 54 · Dir. Sam Mendes</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Éponine</div>
+          <div class="credit-show">Les Misérables</div>
+          <div class="credit-venue">Imperial Theatre · Cameron Mackintosh</div>
+        </div>
+      </div>
+
+      <div class="credit-category">
+        <div class="credit-cat-label">National Tours</div>
+        <div class="credit-row">
+          <div class="credit-role">Christine Daaé</div>
+          <div class="credit-show">Phantom of the Opera</div>
+          <div class="credit-venue">North American Tour · Principal</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Galinda</div>
+          <div class="credit-show">Wicked</div>
+          <div class="credit-venue">National Tour · Dir. Joe Mantello</div>
+        </div>
+      </div>
+
+      <div class="credit-category">
+        <div class="credit-cat-label">Regional Theatre (Selected)</div>
+        <div class="credit-row">
+          <div class="credit-role">Fantine</div>
+          <div class="credit-show">Les Misérables</div>
+          <div class="credit-venue">Goodman Theatre Chicago</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Nellie Forbush</div>
+          <div class="credit-show">South Pacific</div>
+          <div class="credit-venue">The Muny, St. Louis</div>
+        </div>
+        <div class="credit-row">
+          <div class="credit-role">Maria</div>
+          <div class="credit-show">The Sound of Music</div>
+          <div class="credit-venue">Paper Mill Playhouse</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAINING -->
+    <div class="section-card fade-in delay-2">
+      <div class="card-title">🎓 Training <div class="card-title-line"></div></div>
+      <div class="training-item">
+        <div class="training-name">BFA Musical Theatre</div>
+        <div class="training-detail">Carnegie Mellon University · Class of 2018</div>
+      </div>
+      <div class="training-item">
+        <div class="training-name">Voice — Private Study</div>
+        <div class="training-detail">Anne Gross, 8 years ongoing</div>
+      </div>
+      <div class="training-item">
+        <div class="training-name">Shakespeare / Classical Text</div>
+        <div class="training-detail">RADA Exchange Program, London · 2017</div>
+      </div>
+      <div class="training-item">
+        <div class="training-name">Meisner Technique</div>
+        <div class="training-detail">William Esper Studio, NYC · 2019</div>
+      </div>
+      <div class="training-item">
+        <div class="training-name">Ballet / Jazz / Tap</div>
+        <div class="training-detail">Pittsburgh Ballet Theatre School · 12 years</div>
+      </div>
+    </div>
+
+    <!-- SPECIAL SKILLS -->
+    <div class="section-card fade-in delay-3">
+      <div class="card-title">⭐ Special Skills <div class="card-title-line"></div></div>
+      <div class="skills-group">
+        <div class="skills-group-label">Voice</div>
+        <div class="skills-tags">
+          <span class="skill-tag skill-tag-highlight">Soprano C4–E♭6</span>
+          <span class="skill-tag skill-tag-highlight">Mezzo</span>
+          <span class="skill-tag">Classical</span>
+          <span class="skill-tag">Belt</span>
+          <span class="skill-tag">Pop/Rock</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Dance</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Ballet</span>
+          <span class="skill-tag">Jazz</span>
+          <span class="skill-tag">Tap (advanced)</span>
+          <span class="skill-tag">Contemporary</span>
+          <span class="skill-tag">Ballroom</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Dialects</div>
+        <div class="skills-tags">
+          <span class="skill-tag">British RP</span>
+          <span class="skill-tag">Cockney</span>
+          <span class="skill-tag">Irish</span>
+          <span class="skill-tag">Southern US</span>
+          <span class="skill-tag">French</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Other</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Stage Combat (SAFD Certified)</span>
+          <span class="skill-tag">Piano (intermediate)</span>
+          <span class="skill-tag">Horseback Riding</span>
+          <span class="skill-tag">Valid Passport</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTFOLIO GALLERY -->
+    <div class="section-card fade-in delay-3">
+      <div class="card-title">📸 Production Gallery <div class="card-title-line"></div></div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-bg g1">🎭</div>
+          <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-bg g2">🎵</div>
+          <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-bg g3">🎤</div>
+          <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-bg g4">💃</div>
+          <div class="gallery-overlay"><div class="gallery-zoom">🔍</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar-col">
+
+    <!-- CONTACT -->
+    <div class="sidebar-card fade-in delay-2">
+      <div class="sidebar-title">Contact & Connect</div>
+      <div class="contact-actions">
+        <button class="contact-btn contact-btn-primary">📧 Send Inquiry</button>
+        <button class="contact-btn contact-btn-secondary">📄 Download Resume PDF</button>
+        <button class="contact-btn contact-btn-ghost">🔗 Save to Casting List</button>
+      </div>
+    </div>
+
+    <!-- PROFILE STATS -->
+    <div class="sidebar-card fade-in delay-2">
+      <div class="sidebar-title">Profile Activity</div>
+      <div class="stat-row"><span class="stat-label">Profile Views (30d)</span><span class="stat-val" style="color:var(--teal);">247</span></div>
+      <div class="stat-row"><span class="stat-label">Resume Downloads</span><span class="stat-val">38</span></div>
+      <div class="stat-row"><span class="stat-label">Clip Plays</span><span class="stat-val" style="color:var(--gold);">91</span></div>
+      <div class="stat-row"><span class="stat-label">Last Active</span><span class="stat-val">Today</span></div>
+    </div>
+
+    <!-- QR CODE -->
+    <div class="sidebar-card fade-in delay-3">
+      <div class="sidebar-title">Share This Profile</div>
+      <div class="qr-block">
+        <div class="qr-code">
+          <!-- Fake QR pattern -->
+          <svg width="84" height="84" viewBox="0 0 84 84" fill="none">
+            <rect width="84" height="84" fill="white"/>
+            <!-- Top-left finder -->
+            <rect x="4" y="4" width="22" height="22" rx="2" fill="#111"/>
+            <rect x="7" y="7" width="16" height="16" rx="1" fill="white"/>
+            <rect x="10" y="10" width="10" height="10" rx="1" fill="#111"/>
+            <!-- Top-right finder -->
+            <rect x="58" y="4" width="22" height="22" rx="2" fill="#111"/>
+            <rect x="61" y="7" width="16" height="16" rx="1" fill="white"/>
+            <rect x="64" y="10" width="10" height="10" rx="1" fill="#111"/>
+            <!-- Bottom-left finder -->
+            <rect x="4" y="58" width="22" height="22" rx="2" fill="#111"/>
+            <rect x="7" y="61" width="16" height="16" rx="1" fill="white"/>
+            <rect x="10" y="64" width="10" height="10" rx="1" fill="#111"/>
+            <!-- Data modules (random-looking pattern) -->
+            <rect x="30" y="4" width="5" height="5" fill="#111"/>
+            <rect x="38" y="4" width="5" height="5" fill="#111"/>
+            <rect x="46" y="4" width="5" height="5" fill="#111"/>
+            <rect x="30" y="12" width="5" height="5" fill="#111"/>
+            <rect x="46" y="12" width="5" height="5" fill="#111"/>
+            <rect x="34" y="20" width="5" height="5" fill="#111"/>
+            <rect x="4" y="30" width="5" height="5" fill="#111"/>
+            <rect x="12" y="30" width="5" height="5" fill="#111"/>
+            <rect x="20" y="30" width="5" height="5" fill="#111"/>
+            <rect x="30" y="30" width="5" height="5" fill="#F4694B"/>
+            <rect x="38" y="30" width="5" height="5" fill="#111"/>
+            <rect x="46" y="30" width="5" height="5" fill="#111"/>
+            <rect x="54" y="30" width="5" height="5" fill="#111"/>
+            <rect x="62" y="30" width="5" height="5" fill="#111"/>
+            <rect x="70" y="30" width="5" height="5" fill="#111"/>
+            <rect x="78" y="30" width="5" height="5" fill="#111"/>
+            <rect x="4" y="38" width="5" height="5" fill="#111"/>
+            <rect x="20" y="38" width="5" height="5" fill="#111"/>
+            <rect x="34" y="38" width="5" height="5" fill="#111"/>
+            <rect x="46" y="38" width="5" height="5" fill="#111"/>
+            <rect x="62" y="38" width="5" height="5" fill="#111"/>
+            <rect x="78" y="38" width="5" height="5" fill="#111"/>
+            <rect x="4" y="46" width="5" height="5" fill="#111"/>
+            <rect x="12" y="46" width="5" height="5" fill="#111"/>
+            <rect x="30" y="46" width="5" height="5" fill="#111"/>
+            <rect x="38" y="46" width="5" height="5" fill="#111"/>
+            <rect x="54" y="46" width="5" height="5" fill="#111"/>
+            <rect x="70" y="46" width="5" height="5" fill="#111"/>
+            <rect x="30" y="54" width="5" height="5" fill="#111"/>
+            <rect x="46" y="54" width="5" height="5" fill="#111"/>
+            <rect x="62" y="54" width="5" height="5" fill="#111"/>
+            <rect x="78" y="54" width="5" height="5" fill="#111"/>
+            <rect x="34" y="62" width="5" height="5" fill="#111"/>
+            <rect x="42" y="62" width="5" height="5" fill="#111"/>
+            <rect x="54" y="62" width="5" height="5" fill="#111"/>
+            <rect x="70" y="62" width="5" height="5" fill="#111"/>
+            <rect x="30" y="70" width="5" height="5" fill="#111"/>
+            <rect x="46" y="70" width="5" height="5" fill="#111"/>
+            <rect x="62" y="70" width="5" height="5" fill="#111"/>
+            <rect x="78" y="70" width="5" height="5" fill="#111"/>
+          </svg>
+        </div>
+        <div class="qr-label">Scan to view · thelimelight.com/margaret-hayes</div>
+        <div class="profile-share">
+          <span class="profile-share-url">thelimelight.com/margaret-hayes</span>
+          <button class="copy-btn" onclick="this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1800)">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- REPRESENTATION -->
+    <div class="sidebar-card fade-in delay-3">
+      <div class="sidebar-title">Representation</div>
+      <div class="rep-item">
+        <div class="rep-icon">🏢</div>
+        <div>
+          <div class="rep-name">Paradigm Talent Agency</div>
+          <div class="rep-role">Theatrical Agent · New York</div>
+        </div>
+      </div>
+      <div class="rep-item">
+        <div class="rep-icon">👤</div>
+        <div>
+          <div class="rep-name">Authentic Talent + Literary</div>
+          <div class="rep-role">Personal Manager</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CREATE YOUR OWN -->
+    <div style="background:linear-gradient(135deg,rgba(244,105,75,0.12),rgba(245,183,49,0.08));border:1px solid rgba(244,105,75,0.25);border-radius:12px;padding:22px;text-align:center;">
+      <div style="font-size:1.5rem;margin-bottom:8px;">⚡</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:6px;">Build Your Profile</div>
+      <div style="font-size:0.8rem;color:var(--white-dim);margin-bottom:16px;line-height:1.5;">Join 8,000+ performers with a professional LimeLight profile.</div>
+      <a href="onboarding.html" class="btn btn-coral" style="width:100%;justify-content:center;">Start Free Trial</a>
+      <div style="font-size:0.72rem;color:rgba(248,246,240,0.35);margin-top:8px;">7 days free · No card required</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- POWERED BY -->
+<div class="powered-by">
+  Profile powered by <a href="index.html">LimeLight</a> — The performing arts resume platform · <a href="onboarding.html">Create your free profile →</a>
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" onclick="closeVideo(event)">
+  <div class="video-box">
+    <button class="video-close" onclick="closeVideo()">✕</button>
+    <div class="video-player" id="videoPlayer">🎬</div>
+    <div class="video-title" id="videoTitle">Performance Clip</div>
+    <div class="video-meta" id="videoMeta"></div>
+  </div>
+</div>
+
+<script>
+function openVideo(title, meta) {
+  document.getElementById('videoTitle').textContent = title;
+  document.getElementById('videoMeta').textContent = meta;
+  document.getElementById('videoModal').classList.add('open');
+}
+function closeVideo(e) {
+  if (!e || e.target === document.getElementById('videoModal')) {
+    document.getElementById('videoModal').classList.remove('open');
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
+</script>
+</body>
+</html>
