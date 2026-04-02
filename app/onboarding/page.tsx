@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition, useEffect } from 'react'
+import { useState, useTransition, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { signUpWithEmail, signInWithGoogle } from '@/app/actions/auth'
@@ -32,7 +32,7 @@ const disciplines = [
   { icon: '✨', name: 'Multi / Other' },
 ]
 
-export default function OnboardingPage() {
+function OnboardingContent() {
   const searchParams = useSearchParams()
   const [step, setStep] = useState(1)
   const [discipline, setDiscipline] = useState('Director')
@@ -358,5 +358,13 @@ export default function OnboardingPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function OnboardingPage() {
+  return (
+    <Suspense fallback={<div style={{ background: '#0B0F1A', minHeight: '100vh' }} />}>
+      <OnboardingContent />
+    </Suspense>
   )
 }

@@ -4,7 +4,7 @@ import { stripe } from '@/lib/stripe'
 import { createClient } from '@/lib/supabase/server'
 
 // Disable body parsing — Stripe needs the raw body to verify the signature
-export const config = { api: { bodyParser: false } }
+export const dynamic = 'force-dynamic'
 
 async function getRawBody(request: NextRequest): Promise<Buffer> {
   const reader = request.body?.getReader()
