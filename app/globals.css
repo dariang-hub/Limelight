@@ -1239,7 +1239,7 @@ footer {
 }
 .fade-in-up {
   opacity: 0;
-  animation: fadeInUp 0.7s ease forwards;
+  animation: fadeInUp 0.7s ease both;
 }
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
@@ -1250,6 +1250,20 @@ footer {
 
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Ensure content is always visible when animations are disabled */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
 /* ─── UTIL ─── */
 .text-center { text-align: center; }
@@ -1635,8 +1649,7 @@ footer {
 .video-title-modal { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 4px; }
 .video-meta-modal { font-size: 0.8rem; color: var(--white-dim); }
 
-@keyframes fadeInUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-.fade-in { animation: fadeInUp 0.6s ease forwards; }
+.fade-in { animation: fadeInUp 0.6s ease both; }
 
 .powered-by { text-align: center; padding: 32px; border-top: 1px solid var(--border); margin-top: 24px; font-size: 0.8rem; color: rgba(248,246,240,0.3); }
 .powered-by a { color: var(--coral); text-decoration: none; font-weight: 600; }
