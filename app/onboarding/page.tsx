@@ -48,7 +48,9 @@ function OnboardingContent() {
   const [email, setEmail] = useState('')
   const [authError, setAuthError] = useState<string | null>(null)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
-  const [isPending, startTransition] = useTransition()
+  const [isSigningUp, setIsSigningUp] = useState(false)
+  const [needsConfirmation, setNeedsConfirmation] = useState(false)
+  const [, startTransition] = useTransition()
   const [isCheckingOut, setIsCheckingOut] = useState(false)
 
   function passwordStrength(val: string) {
@@ -184,26 +186,50 @@ function OnboardingContent() {
                   ⚠️ {authError}
                 </div>
               )}
+              {needsConfirmation && (
+                <div style={{ background: 'rgba(45,212,191,0.1)', border: '1px solid rgba(45,212,191,0.3)', borderRadius: '8px', padding: '12px 16px', fontSize: '0.875rem', color: '#2DD4BF', marginBottom: '16px' }}>
+                  📧 Check your email to confirm your account, then continue below.
+                </div>
+              )}
               <button
                 className="btn-full btn-coral"
-                disabled={isPending}
+                disabled={isSigningUp}
                 onClick={() => {
                   setAuthError(null)
-                  void (async () => {
-                    const fd = new FormData()
-                    fd.append('name', name)
-                    fd.append('email', email)
-                    fd.append('password', password)
-                    const result = await signUpWithEmail(fd)
-                    if (result?.error) {
-                      setAuthError(result.error)
-                    } else {
-                      setStep(2)
+                  // Client-side validation before hitting the server
+                  if (!name.trim()) { setAuthError('Please enter your full name.'); return }
+                  if (!email.trim()) { setAuthError('Please enter your email address.'); return }
+                  if (!password) { setAuthError('Please create a password.'); return }
+                  if (password.length < 8) { setAuthError('Password must be at least 8 characters.'); return }
+
+                  setIsSigningUp(true)
+                  console.log('[Onboarding] Calling signUpWithEmail for:', email)
+                  ;(async () => {
+                    try {
+                      const fd = new FormData()
+                      fd.append('name', name)
+                      fd.append('email', email)
+                      fd.append('password', password)
+                      const result = await signUpWithEmail(fd)
+                      console.log('[Onboarding] signUpWithEmail result:', result)
+                      if (result?.error) {
+                        setAuthError(result.error)
+                      } else if (result?.needsConfirmation) {
+                        setNeedsConfirmation(true)
+                        setStep(2)
+                      } else {
+                        setStep(2)
+                      }
+                    } catch (err) {
+                      console.error('[Onboarding] Unexpected error from signUpWithEmail:', err)
+                      setAuthError('Something went wrong. Please try again.')
+                    } finally {
+                      setIsSigningUp(false)
                     }
                   })()
                 }}
               >
-                {isPending ? 'Creating Account…' : 'Create Account — Start Free Trial →'}
+                {isSigningUp ? 'Creating Account…' : 'Create Account — Start Free Trial →'}
               </button>
               <div className="form-terms">By continuing you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your 7-day free trial begins immediately.</div>
               <div className="switch-link">Already have an account? <a href="#">Log in</a></div>
